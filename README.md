@@ -1,6 +1,9 @@
 Example of how to over-plot two corner plots using the corner.py python package.
+Below I outline how to format the parameters of the corner.corner() function to display multiple distributions in one corner.py plot.
+I do not go over the basics of how to use the corner.corner() function, see the official <a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website, which I am not the creator of, for that information.
 
 Basic structure:
+- One corner.corner() function is needed for every distribution of data
 - Name the first corner.corner(), e.g. "example_fig". The 2nd corner.corner() must end with attaching it to the first corner.corner(): fig=example_fig
 
 
