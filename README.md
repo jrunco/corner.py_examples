@@ -1,15 +1,20 @@
 Example of how to over-plot two corner plots using the corner.py python package.
+
 Below I outline how to format the parameters of the corner.corner() function to display multiple distributions in one corner.py plot.
-I do not go over the basics of how to use the corner.corner() function, see the official <a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website, which I am not the creator of, for that information.
+I do not go over the basics of how to use the corner.corner() function, see the official 
+<a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website, which I am not the creator of, for that information.
+Important disclaimer: I am not the creator of corner.py and do not claim any ownership over its maitanance. 
 
 Basic structure:
 - One corner.corner() function is needed for every distribution of data
 - Name the first corner.corner(), e.g. "example_fig". The 2nd corner.corner() must end with attaching it to the first corner.corner(): fig=example_fig
 
 
-Parameters that need to be specified for every sample (i.e., every corner.corner() function):
-- Bins must be specified for both samples. Specifying the bins for one sample does not carry over to the other sample.
-- Parameters that specify appearance of the data such as fill_contours=True (smooths our 2-D parameter space), quantiles=[0.16, 0.5, 0.84] (puts dashed lines identifying these spots on the 1-D histogram), levels=(0, 1-np.exp(-0.5), 1-np.exp(-1.125), 1-np.exp(-2)) (specifies the #-sigma regions on the 2-D parameter space that are identified - in my example I point out the 1, 1.5, and 2-sigma regions [the default includes 0.5-sigma]).
+Parameters that need to be specified for every sample (i.e., every corner.corner() function). Specifying these parameters for one sample does not carry over to the other sample:
+- bins 
+- fill_contours (e.g. fill_contours=True)
+- quantiles=[0.16, 0.5, 0.84] (puts dashed lines identifying these spots on the 1-D histogram)
+- levels=(0, 1-np.exp(-0.5), 1-np.exp(-1.125), 1-np.exp(-2)) (specifies the #-sigma regions on the 2-D parameter space that are identified 
 
 
 Parameters that must be specified in the final corner.corner() function:
