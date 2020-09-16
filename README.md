@@ -1,9 +1,8 @@
-Example of how to over-plot two corner plots using the corner.py python package.
+Below I outline how to format multiple corner.corner() functions and corresponding parameters in the functions to display multiple distributions in one corner.py plot. This is meant to be supplemental information to go along with the python example in this repository.
 
-Below I outline how to format multiple corner.corner() functions and corresponding parameters in the functions to display multiple distributions in one corner.py plot. 
 I do not go over the basics of how to use the corner.corner() function, see the official 
 <a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website for that information.
-**Important disclaimer: I am not the creator of corner.py and do not claim any ownership over its maitanance.**
+**Important disclaimer: I am not the creator of corner.py and do not claim any ownership over its maintenance.**
 
 1. Basic structure:
    - One corner.corner() function is needed for every data set
@@ -18,7 +17,7 @@ I do not go over the basics of how to use the corner.corner() function, see the 
       - **hist_kwargs**
    - Some parameters must be specified in a specific corner.corner() function:
       - **range** must be specified in the final corner.corner() function. Specifying the range in the first corner.corner() function does not work, as the plot window will focus around the 2nd distribution.
-   - Some parameters can be specified in any corner.corner() function. These parameters only need to be specfified once, and the appearance of the plot will not change based on which corner.corner() function they are included in:
+   - Some parameters can be specified in any corner.corner() function. These parameters only need to be specified once, and the appearance of the plot will not change based on which corner.corner() function they are included in:
       - **labels**The x-axis and y-axis labels argument can go in either corner.corner() function.
 
 3. Other information:
