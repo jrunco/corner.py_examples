@@ -1,32 +1,27 @@
 Example of how to over-plot two corner plots using the corner.py python package.
 
-Below I outline how to format the parameters of the corner.corner() function to display multiple distributions in one corner.py plot.
+Below I outline how to format multiple corner.corner() functions and corresponding parameters in the functions to display multiple distributions in one corner.py plot. 
 I do not go over the basics of how to use the corner.corner() function, see the official 
-<a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website, which I am not the creator of, for that information.
-Important disclaimer: I am not the creator of corner.py and do not claim any ownership over its maitanance. 
+<a href="https://corner.readthedocs.io/en/latest/index.html">Corner.py</a> website for that information.
+**Important disclaimer: I am not the creator of corner.py and do not claim any ownership over its maitanance.**
 
-Basic structure:
-- One corner.corner() function is needed for every distribution of data
-- Name the first corner.corner(), e.g. "example_fig". The 2nd corner.corner() must end with attaching it to the first corner.corner(): fig=example_fig
+1. Basic structure:
+   - One corner.corner() function is needed for every data set
+   - Name the first corner.corner(), e.g. "example_fig". The 2nd corner.corner() must end with attaching it to the first corner.corner(): fig=example_fig
 
+2. Parameter formatting
+   - Parameters that modify the appearance of individual data sets must be specified in ever corner.corner() function. Specifying these parameters in the first corner.corner() function does not carry over to subsequent corner.corner() functions.  Examples of parameters that this applies to are:
+      - **bins**
+      - **color**
+      - **fill_contours**
+      - **quantiles**
+      - **hist_kwargs**
+   - Some parameters must be specified in a specific corner.corner() function:
+      - **range** must be specified in the final corner.corner() function. Specifying the range in the first corner.corner() function does not work, as the plot window will focus around the 2nd distribution.
+   - Some parameters can be specified in any corner.corner() function. These parameters only need to be specfified once, and the appearance of the plot will not change based on which corner.corner() function they are included in:
+      - **labels**The x-axis and y-axis labels argument can go in either corner.corner() function.
 
-Parameters that need to be specified for every sample (i.e., every corner.corner() function). Specifying these parameters for one sample does not carry over to the other sample:
-- bins 
-- fill_contours (e.g. fill_contours=True)
-- quantiles=[0.16, 0.5, 0.84] (puts dashed lines identifying these spots on the 1-D histogram)
-- levels=(0, 1-np.exp(-0.5), 1-np.exp(-1.125), 1-np.exp(-2)) (specifies the #-sigma regions on the 2-D parameter space that are identified 
+3. Other information:
+   - **show_titles**=True can only show the median with uncertainties for one of the distributions in each 1-D histogram.  Use plt.text() to manually put in both if desired.
 
-
-Parameters that must be specified in the final corner.corner() function:
-- The range must be specified in the plot of the second sample. Specifying the range in the first plot line does not work, as the plot will focus around the 2nd distribution.
-
-
-Parameters that can be specified in either corner.corner() function:
-- The x-axis and y-axis labels argument can go in either corner.corner() function.
-
-
-Other information:
-- show_titles=True can only show the median with uncertainties for one of the distributions in each 1-D histogram.  Use plt.text() to manually put in both if desired.
-
-
-Lastly, note that I do not cover every in the detailed API documentation for the corner.corner() function.  
+Lastly, note that I do not discuss how to use every parameter available in the <a href="https://corner.readthedocs.io/en/latest/api.html">detailed API documentation</a> for the corner.corner() function. I limit my discussion above to the parameters that are used in the corner example in this repository.
